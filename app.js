@@ -18,6 +18,7 @@ function reloadMessages() {
     let listElement = document.getElementById("messages");
     fetch(basePath + "/messages/list").then(result => {
         result.json().then(data => {
+            listElement.replaceChildren();
             data.forEach(msg => {
                 let e = document.createElement("li");
                 e.innerText = `${msg.title}: ${msg.message}`;
