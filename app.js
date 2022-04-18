@@ -6,6 +6,9 @@ function submitform(evt) {
     let message = data.get("message");
     fetch(basePath + "/messages/create", {
         method: "POST",
+	headers: {
+		"Content-Type": "application/x-www-form-urlencoded"
+	}
         body: `title=${title}&message=${message}`
     }).then(result => {
         reloadMessages();
@@ -22,6 +25,5 @@ function reloadMessages() {
             })
         });
     });
-    console.log(element);
 }
 window.onload = reloadMessages;
