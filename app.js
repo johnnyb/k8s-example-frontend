@@ -8,7 +8,7 @@ function submitform(evt) {
         method: "POST",
 	headers: {
 		"Content-Type": "application/x-www-form-urlencoded"
-	}
+	},
         body: `title=${title}&message=${message}`
     }).then(result => {
         reloadMessages();
