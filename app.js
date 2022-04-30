@@ -1,10 +1,9 @@
-let basePath = "/api";
 function submitform(evt) {
     evt.preventDefault();
     let data = new FormData(evt.target);
     let title = data.get("title");
     let message = data.get("message");
-    fetch(basePath + "/messages/create", {
+    fetch("/api/messages/create", {
         method: "POST",
 	headers: {
 		"Content-Type": "application/x-www-form-urlencoded"
@@ -16,7 +15,7 @@ function submitform(evt) {
 }
 function reloadMessages() {
     let listElement = document.getElementById("messages");
-    fetch(basePath + "/messages/list").then(result => {
+    fetch("/api/messages/list").then(result => {
         result.json().then(data => {
             listElement.replaceChildren();
             data.forEach(msg => {
